@@ -13,5 +13,9 @@ and open the template in the editor.
   font-family: 'Cormorant Garamond', serif !important;
     
 }
-
+h1 {
+    
+    text-align: center;
+    
+}
 
