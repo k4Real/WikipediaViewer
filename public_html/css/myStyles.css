@@ -18,7 +18,7 @@ h1 {
     text-align: center;
     
 }
-.content {
+#content {
     
     width: 500px;
     margin: 0 auto ;
@@ -49,4 +49,17 @@ h1 {
     
 }
 
+.searchResult {
+     padding: 5px;
+     padding-left: 10px;
+    
+    
+}
+
+.title
+{
+    text-decoration: underline;
+    
+    
+}
 
