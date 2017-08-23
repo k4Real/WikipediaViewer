@@ -8,22 +8,12 @@
  var searchUrl="https://en.wikipedia.org/w/api.php?" ;
  var searchText="";
 
+//******************************************
 
-$(document).ready(function() {
-    
 
-    $("#searchField").keypress(function(event){
-    
-    if (event.key==='Enter')
-    {
-         searchText = this.value;
-         
-      searchUrl ="https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&uselang=user&search="+searchText +"&limit=20&profile=fuzzy";
-       $.ajax ({ 
-           
-         url : searchUrl ,
-         
-         success: function(response){
+
+
+function toHTML (response){
              
              for (i=0; i<20;i++)
              {
@@ -39,7 +29,27 @@ $(document).ready(function() {
              
              
              
-         },
+         }
+
+
+
+/********************************************/
+$(document).ready(function() {
+    
+
+    $("#searchField").keypress(function(event){
+    
+    if (event.key==='Enter')
+    {
+         searchText = this.value;
+         
+      searchUrl ="https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&uselang=user&search="+searchText +"&limit=20&profile=fuzzy";
+       $.ajax ({ 
+           
+         url : searchUrl ,
+         
+         // if you call a function just write the name, no paranthesis
+         success: toHTML,
          
          error :function (){}
          
@@ -54,9 +64,62 @@ $(document).ready(function() {
     
     
     
-})
+});
+    
+ 
+ 
+    $("#startSearch").on("click",function(){
+    
+   
+    
+         searchText =  document.getElementById("searchField").value;
+         
+      searchUrl ="https://en.wikipedia.org/w/api.php?action=opensearch&format=json&origin=*&uselang=user&search="+searchText +"&limit=20&profile=fuzzy";
+       $.ajax ({ 
+           
+         url : searchUrl ,
+         
+         // if you call a function just write the name, no paranthesis
+         success: toHTML,
+         
+         error :function (){}
+         
+         
+       
+       
+        
+    });
     
     
+        
+   
+    
+    
+});
+ 
+  $("#randomSearch").on("click",function(){
+    
+   
+    
+        window.location="https://en.wikipedia.org/wiki/Special:Random" ;
+         
+    
+      
+    
+    
+        
+   
+    
+    
+});
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
     
  
 }) ;

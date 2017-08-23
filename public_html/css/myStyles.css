@@ -59,7 +59,21 @@ h1 {
 .title
 {
     text-decoration: underline;
-    
+    color:black;
     
 }
 
+.searchResult:hover,
+.searchResult:focus {
+    
+    
+    border-left: blueviolet solid ;
+    font-size: 1.15em;
+    
+}
+
+footer {
+    
+    text-align: center;
+    
+}
